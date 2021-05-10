@@ -32,8 +32,13 @@ Exam.every_third = function (array) {
 Exam.merge_sentences = function (sentence1, sentence2) {
     if (sentence1.split(" ").length !== sentence2.split(" ").length ) {
         throw ValueError;
-    } else break;
-    return sentence1 + sentence2;
+    } else {
+        for (i = 0; i < l; i++) {
+            result.push(sentence1.split(" ")[i], sentence2.split(" ")[i]);
+        }
+        result.push(...sentence1.split(" ").slice(l), ...sentence2.split(" ").slice(l));
+    };
+    return result.join(" ");
 };
 
 // Write a function that returns the number of lowercase letters in
