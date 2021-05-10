@@ -33,13 +33,15 @@ Exam.merge_sentences = function (sentence1, sentence2) {
     if (sentence1.split(" ").length !== sentence2.split(" ").length ) {
         throw ValueError;
     } else {
-        result = []
-        i, l = Math.min(sentence1.split(" ").length, sentence2.split(" ").length);
+        result = [];
+        i;
+        l = Math.min(sentence1.split(" ").length, sentence2.split(" ").length);
+        //??
         for (i = 0; i < l; i++) {
             result.push(sentence1.split(" ")[i], sentence2.split(" ")[i]);
         }
         result.push(...sentence1.split(" ").slice(l), ...sentence2.split(" ").slice(l));
-    };
+    }
     return result.join(" ");
 };
 
@@ -53,16 +55,16 @@ Exam.lowercase_count = function (inputstring) {
 
   // loop over every char
   for (const char of inputstring) {
-    // check if it is lowercase
+    // check if it is lowercase, I assume if matches any of lowercase alphabet
     if (char.match(/[a-z]/)) {
       // if yes, increase count
+    // or if (char === char.lowercase) ?
       count += 1;
     }
   }
 
   return count;
-}
-    return s.lowercase_count;
+
 };
 
 
@@ -70,14 +72,14 @@ Exam.lowercase_count = function (inputstring) {
 
 // Write a function that returns the longest a key in the input object
 // whose keys are all strings.
-Exam.longest_key = function () {
-    return;
+Exam.longest_key = function (str) {
+    return Math.max(...str.split(" ").map(word => word.length));
 };
 
 // Write a function that returns the largest value that is an even value in the
 // input dictionary whose values are all whole numbers.
-Exam.value_greatest_even = function () {
-    return;
+Exam.value_greatest_even = function (a) {
+    return console.log(Math.max(a));
 };
 
 
@@ -88,8 +90,8 @@ Exam.value_greatest_even = function () {
 //
 // The username argument should not be set to a default,
 // but the location argument should default to "London".
-Exam.greeting = function () {
-    return;
+Exam.greeting = function (username, location = "London") {
+    return "Hello, ${username}, how is ${location}?";
 };
 
 
