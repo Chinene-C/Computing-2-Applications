@@ -32,8 +32,8 @@ Exam.every_third = function (array) {
 Exam.merge_sentences = function (sentence1, sentence2) {
     if (sentence1.split(" ").length !== sentence2.split(" ").length ) {
         throw ValueError;
-    } else {
-        result = [];
+    }
+    result = [];
         i;
         l = Math.min(sentence1.split(" ").length, sentence2.split(" ").length);
         //??
@@ -41,7 +41,6 @@ Exam.merge_sentences = function (sentence1, sentence2) {
             result.push(sentence1.split(" ")[i], sentence2.split(" ")[i]);
         }
         result.push(...sentence1.split(" ").slice(l), ...sentence2.split(" ").slice(l));
-    }
     return result.join(" ");
 };
 
@@ -102,8 +101,12 @@ Exam.greeting = function (username, location = "London") {
 //     offset with a default of 0
 // The function returns the calculation x * scalar + offset for the input x
 // if the output value of the calculation is positive, otherwise it returns 0.
-Exam.floor_line = function () {
-    return;
+Exam.floor_line = function (x, scalar = 1, offset = 0) {
+    ans = x * scalar + offset
+    if (ans < 0){
+        return 0
+    }
+    return ans;
 };
 
 export default Object.freeze(Exam);
