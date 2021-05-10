@@ -33,6 +33,8 @@ Exam.merge_sentences = function (sentence1, sentence2) {
     if (sentence1.split(" ").length !== sentence2.split(" ").length ) {
         throw ValueError;
     } else {
+        result = []
+        i, l = Math.min(sentence1.split(" ").length, sentence2.split(" ").length);
         for (i = 0; i < l; i++) {
             result.push(sentence1.split(" ")[i], sentence2.split(" ")[i]);
         }
