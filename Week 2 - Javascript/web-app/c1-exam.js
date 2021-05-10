@@ -48,8 +48,21 @@ Exam.merge_sentences = function (sentence1, sentence2) {
 //     for example:
 //          the input "sPonGe bOb"
 //          returns 6
-Exam.lowercase_count = function () {
-    return;
+Exam.lowercase_count = function (inputstring) {
+    let count = 0;
+
+  // loop over every char
+  for (const char of inputstring) {
+    // check if it is lowercase
+    if (char.match(/[a-z]/)) {
+      // if yes, increase count
+      count += 1;
+    }
+  }
+
+  return count;
+}
+    return s.lowercase_count;
 };
 
 
