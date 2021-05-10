@@ -29,8 +29,11 @@ Exam.every_third = function (array) {
 //       the input sentences "the cow jumped over the moon" and
 //                            "jack and jill went up the"
 //       returns "the jack cow and jumped jill over went the up moon the"
-Exam.merge_sentences = function () {
-    return;
+Exam.merge_sentences = function (sentence1, sentence2) {
+    if (sentence1.split(" ").length !== sentence2.split(" ").length ) {
+        throw ValueError;
+    } else break;
+    return sentence1 + sentence2;
 };
 
 // Write a function that returns the number of lowercase letters in
