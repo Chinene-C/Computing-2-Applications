@@ -34,13 +34,13 @@ Exam.merge_sentences = function (sentence1, sentence2) {
         throw ValueError;
     }
     result = [];
-        i;
-        l = Math.min(sentence1.split(" ").length, sentence2.split(" ").length);
-        //??
-        for (i = 0; i < l; i++) {
-            result.push(sentence1.split(" ")[i], sentence2.split(" ")[i]);
-        }
-        result.push(...sentence1.split(" ").slice(l), ...sentence2.split(" ").slice(l));
+    i;
+    l = Math.min(sentence1.split(" ").length, sentence2.split(" ").length);
+    //??
+    for (i = 0; i < l; i += 1) {
+        result.push(sentence1.split(" ")[i], sentence2.split(" ")[i]);
+    }
+    result.push(...sentence1.split(" ").slice(l), ...sentence2.split(" ").slice(l));
     return result.join(" ");
 };
 
@@ -54,8 +54,8 @@ Exam.lowercase_count = function (inputstring) {
 
   // loop over every char
   for (const char of inputstring) {
-    // check if it is lowercase, I assume if matches any of lowercase alphabet
-    if (char.match(/[a-z]/)) {
+      // check if it is lowercase, I assume if matches any of lowercase alphabet
+      if (char.match(/[a-z]/)) {
       // if yes, increase count
     // or if (char === char.lowercase) ?
       count += 1;
