@@ -112,18 +112,12 @@ Exam.greeting = function (username, location = "London") {
 //     offset with a default of 0
 // The function returns the calculation x * scalar + offset for the input x
 // if the output value of the calculation is positive, otherwise it returns 0.
-/*Exam.floor_line = function (x, scalar = 1, offset = 0) {
+Exam.floor_line = function (x, scalar = 1, offset = 0) {
     const ans = x * scalar + offset;
     if (ans < 0){
         return 0;
     }
     return ans;
 }; 
-export default Object.freeze(Exam); */
+export default Object.freeze(Exam); 
 
-Exam.floor_line = function (x, scalar = 1, offset = 0) {
-    // returns max value so returns 0 when calc is negative
-    return Math.max(0, scalar * x + offset);
-};
-
-export default Object.freeze(Exam);
