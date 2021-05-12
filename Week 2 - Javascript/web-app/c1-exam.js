@@ -30,18 +30,25 @@ Exam.every_third = function (array) {
 //                            "jack and jill went up the"
 //       returns "the jack cow and jumped jill over went the up moon the"
 Exam.merge_sentences = function (sentence1, sentence2) {
-    if (sentence1.split(" ").length !== sentence2.split(" ").length ) {
-        throw ValueError;
+    const list1 = sentence1.split(" ");
+    const list2 = sentence2.split(" ");
+    if (list1.length !== list2.length ) {
+        throw "ValueError";
     }
-    result = [];
-    i;
-    l = Math.min(sentence1.split(" ").length, sentence2.split(" ").length);
+/*    result = [];
+    let i = 0;
     //??
-    for (i = 0; i < l; i += 1) {
-        result.push(sentence1.split(" ")[i], sentence2.split(" ")[i]);
+    while (i < list1.length) {
+        // push adds word according to index
+        result.push(list1[i]);
+        result.push(list2[i]);
+        i += 1;
     }
-    result.push(...sentence1.split(" ").slice(l), ...sentence2.split(" ").slice(l));
     return result.join(" ");
+    */
+   // flatMap = Map but flattens to one row array, apply function to everything in that list
+   // k = index, v = element
+    return list1.flatMap((v, k) => [v, list2[k]]).join(" ");
 };
 
 // Write a function that returns the number of lowercase letters in
@@ -53,7 +60,7 @@ Exam.lowercase_count = function (inputstring) {
     let count = 0;
 
   // loop over every char
-  for (const char of inputstring) {
+  while (const char of inputstring) {
       // check if it is lowercase, I assume if matches any of lowercase alphabet
       if (char.match(/[a-z]/)) {
       // if yes, increase count
@@ -78,7 +85,9 @@ Exam.longest_key = function (str) {
 // Write a function that returns the largest value that is an even value in the
 // input dictionary whose values are all whole numbers.
 Exam.value_greatest_even = function (a) {
-    return console.log(Math.max(a));
+    
+    (a % 2 !=== 0) {}
+    return Math.max(a);
 };
 
 
@@ -90,8 +99,10 @@ Exam.value_greatest_even = function (a) {
 // The username argument should not be set to a default,
 // but the location argument should default to "London".
 Exam.greeting = function (username, location = "London") {
-    return "Hello, ${username}, how is ${location}?";
+    // use weird 
+    return `Hello, ${username}, how is ${location}?`;
 };
+
 
 
 // Write a function three input arguments,
@@ -101,12 +112,18 @@ Exam.greeting = function (username, location = "London") {
 //     offset with a default of 0
 // The function returns the calculation x * scalar + offset for the input x
 // if the output value of the calculation is positive, otherwise it returns 0.
-Exam.floor_line = function (x, scalar = 1, offset = 0) {
-    ans = x * scalar + offset
+/*Exam.floor_line = function (x, scalar = 1, offset = 0) {
+    const ans = x * scalar + offset;
     if (ans < 0){
-        return 0
+        return 0;
     }
     return ans;
+}; 
+export default Object.freeze(Exam); */
+
+Exam.floor_line = function (x, scalar = 1, offset = 0) {
+    // returns max value so returns 0 when calc is negative
+    return Math.max(0, scalar * x + offset);
 };
 
 export default Object.freeze(Exam);
